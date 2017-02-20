@@ -1,0 +1,22 @@
+{
+  "name": "herodotus-middleware",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/53seven/herodotus-middleware.git"
+  },
+  "author": "kiernan <kiernan@537.io> (http://537.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/53seven/herodotus-middleware/issues"
+  },
+  "homepage": "https://github.com/53seven/herodotus-middleware#readme",
+  "dependencies": {
+    "uuid": "^3.0.1"
+  }
+}
