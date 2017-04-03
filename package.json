@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/53seven/herodotus-middleware#readme",
   "dependencies": {
+    "http-headers": "^3.0.1",
     "uuid": "^3.0.1"
   },
   "devDependencies": {

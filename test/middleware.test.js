@@ -24,7 +24,7 @@ describe('herodotus-middleware', () => {
       method: 'GET',
       url: '/a/url'
     };
-    res = {};
+    res = {statusCode: 200, _header: 'name: value'};
     res.on = function(evt, callback) {
       finishCallback = callback;
     };
@@ -62,6 +62,10 @@ describe('herodotus-middleware', () => {
       expect(out[0]).to.have.property('req');
       expect(out[1]).to.have.property('req');
       expect(out[2]).to.have.property('req');
+
+      // expect the result log to have parsed HTTP headers
+      expect(out[2]).to.have.property('res');
+      expect(out[2].res.header).to.have.property('name', 'value');
 
 
       // expect all  the request ids to be the same
@@ -107,6 +111,16 @@ describe('herodotus-middleware', () => {
 
       // expect all  the request ids to be the same
       expect(_.uniq(_.map(out, 'id'))).to.have.lengthOf(1);
+      done();
+    });
+  });
+
+  it('should be ok with malformed req, res objects', (done) => {
+    req.connection = null;
+    res.statusCode = null;
+    boostrapServer((out) => {
+      expect(out).to.have.lengthOf(3);
+
       done();
     });
   });
