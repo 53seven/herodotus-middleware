@@ -65,7 +65,7 @@ describe('herodotus-middleware', () => {
 
       // expect the result log to have parsed HTTP headers
       expect(out[2]).to.have.property('res');
-      expect(out[2].res.header).to.have.property('name', 'value');
+      expect(out[2].res.headers).to.have.property('name', 'value');
 
 
       // expect all  the request ids to be the same
