@@ -115,6 +115,15 @@ describe('herodotus-middleware', () => {
     });
   });
 
+  it('should parse x-forwarded-for headers', (done) => {
+    req.headers = {'x-forwarded-for': '0.0.0.0, 0.0.0.1'};
+    boostrapServer((out) => {
+      expect(out).to.have.lengthOf(3);
+      expect(out[0]).to.have.property('__geoip', '0.0.0.0');
+      done();
+    });
+  });
+
   it('should be ok with malformed req, res objects', (done) => {
     req.connection = null;
     res.statusCode = null;
